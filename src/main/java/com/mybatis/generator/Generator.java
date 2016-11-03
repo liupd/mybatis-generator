@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -17,14 +16,13 @@ import org.mybatis.generator.internal.DefaultShellCallback;
  */
 public class Generator {
 
-    @Test
-    public void generator() throws Exception {
+    public static void main(String[] args) {
         try {
 
             boolean overwrite = true;
 
-            // InputStream stream = this.getClass().getResource("/generatorConfig-base.xml").openStream();
-            InputStream stream = this.getClass().getResource("/generatorConfig-business.xml").openStream();
+            // InputStream stream = Generator.this.getClass().getResource("/generatorConfig-base.xml").openStream();
+            InputStream stream = Generator.class.getClass().getResource("/generatorConfig-business.xml").openStream();
 
             List<String> warnings = new ArrayList<String>();
             ConfigurationParser cp = new ConfigurationParser(warnings);
