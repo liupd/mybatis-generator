@@ -9,24 +9,16 @@
 	<name>mybatis-generator</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.jdkVersion>1.7</project.build.jdkVersion>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- mybatis -->
-		<mybatis.version>3.4.1</mybatis.version>
-		<mybatis-generator-core.version>1.3.5</mybatis-generator-core.version>
-
-		<!-- jdbc -->
-		<mysql-connector-java.version>5.1.34</mysql-connector-java.version>
-		<ojdbc.version>6</ojdbc.version>
-
-		<!-- log -->
-		<log4j.version>1.2.17</log4j.version>
-
-		<!-- test -->
-		<junit.version>4.12</junit.version>
-	</properties>
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<url>http://repository.jboss.com/maven2/</url>
+		</repository>
+		<repository>
+			<id>atlassian</id>
+  			<url>http://maven.jahia.org/maven2</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 
@@ -34,29 +26,26 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>${mybatis.version}</version>
+			<version>3.4.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
-			<version>${mybatis-generator-core.version}</version>
+			<version>1.3.5</version>
 		</dependency>
 
 		<!-- jdbc -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql-connector-java.version}</version>
+			<version>5.1.34</version>
 		</dependency>
 
 		<dependency>
-			<groupId>oracle</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>${ojdbc.version}</version>
-			<type>jar</type>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/ojdbc-6.jar</systemPath>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.1.0.7.0</version>
 		</dependency>
 
 	</dependencies>
@@ -68,9 +57,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<source>${project.build.jdkVersion}</source>
-					<target>${project.build.jdkVersion}</target>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 
@@ -79,9 +68,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18</version>
 				<configuration>
-					<!-- 此值为true则忽略测试中的构建错误 -->
 					<testFailureIgnore>true</testFailureIgnore>
-					<!-- 此值为true则不执行单元测试 -->
 					<skip>true</skip>
 				</configuration>
 			</plugin>
